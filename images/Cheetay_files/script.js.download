@@ -1,0 +1,52 @@
+// Cuisines Animation
+let animation = gsap.timeline({ repeat: 20 })
+let targets = document.querySelectorAll("#cuisinesAnimation span")
+let numberOfTargets = targets.length
+
+let duration = 0.3
+let pause = 1
+
+let stagger = duration + pause
+let repeatDelay = (stagger * (numberOfTargets - 1)) + pause
+
+function init() {
+    gsap.set("#cuisinesAnimation", { autoAlpha: 1 })
+    animation.from(targets, {
+        y: 60, duration: duration, opacity: 0, stagger: {
+            each: stagger,
+            repeat: -1,
+            repeatDelay: repeatDelay
+        }
+    })
+        .to(targets, {
+            y: -60, duration: duration, opacity: 0, stagger: {
+                each: stagger,
+                repeat: -1,
+                repeatDelay: repeatDelay
+            }
+        }, stagger)
+}
+
+init();
+
+
+const deviceDetection = deviceName => {
+    for (let i = 0; i < deviceName.length; i++) {
+        deviceName[i].classList.remove("hide");
+    }
+}
+
+//Detect the mobile operating system.
+const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+//device detection
+if (/android/i.test(userAgent)) {
+    const winBtns = document.querySelectorAll("#playstoreButton, #playstoreButtonDN, #categoryPlaystoreButton");
+    deviceDetection(winBtns);
+} else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    const winBtns = document.querySelectorAll("#appstoreButton, #appstoreButtonDN, #categoryAppstoreButton");
+    deviceDetection(winBtns);
+} else {
+    const winBtns = document.querySelectorAll("#appstoreButton, #playstoreButton, #appstoreButtonDN, #playstoreButtonDN, #categoryPlaystoreButton");
+    deviceDetection(winBtns);
+}
+

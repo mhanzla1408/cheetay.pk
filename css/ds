@@ -1,0 +1,14 @@
+<div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="/images/cheetaypop-banner.jpg" alt="cheetay pop">
+            </div>
+            <div class="col-lg-6 d-flex align-items-center justify-content-center flex-column">
+                 
+                    <h3>Your daily essentials at your doorstep</h3>
+                    <p>Skip the line at the store and let Cheetay deliver groceries to you. We offer the widest variety of best quality products and amazing service. Checking off items from your shopping list has never been easier.</p>
+                    <button class="custom-btn" type="button">Order groceries now <span class="btn-icon"><i class="bi bi-arrow-right"></i></span></button>
+                
+            </div>
+          </div>
+      </div>
